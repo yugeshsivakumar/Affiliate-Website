@@ -1,9 +1,10 @@
+
 /* Categories Tabs Styling */
 .categories-tabs {
     background-color: #1f2122;
     border-radius: 25px;
     padding: 30px;
-    margin-bottom: -30px;                   /* This should ve manually change */
+                       /* This should ve manually change */
   }
   
   .categories-tabs .heading-section {
