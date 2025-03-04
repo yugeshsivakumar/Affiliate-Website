@@ -1,6 +1,5 @@
-how to create you own affiliate links in readme 
-images 
-logo 
-text messages in good format
-Mobile optimize 
-Add more categories 
+1. Proper Text 
+2. Images 
+3. Logo
+4. More categories 
+5. Pros and cons 
