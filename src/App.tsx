@@ -30,11 +30,11 @@ function App() {
       <main className="flex-grow container mx-auto px-4 py-8 relative z-10">
         <section className="mb-12">
           <h1 className="text-4xl font-bold text-center mb-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
-            Curated Product Recommendations
+           My Product Recommendations
           </h1>
           <p className="text-center text-gray-400 max-w-2xl mx-auto">
-            Discover our personally tested and reviewed products across various categories. 
-            Each recommendation comes with our honest feedback and experience.
+            Discover my personally tested and reviewed products across various categories. 
+            Each recommendation comes with my honest feedback and experience.
           </p>
         </section>
 

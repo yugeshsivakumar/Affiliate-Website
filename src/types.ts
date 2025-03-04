@@ -4,7 +4,7 @@ export interface Product {
   category: string;
   imageUrl: string;
   review: string;
-  downloads: number;
+  downloads: string;
   rating: number;
   amazonLink: string;
   pros: string[];
