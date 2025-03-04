@@ -1,5 +1,4 @@
-1. Proper Text 
-2. Images 
-3. Logo
-4. More categories 
-5. Pros and cons 
+1. List Products with affliate link
+2. More categories 
+3. Add affliate link 
+4. How to create affliate medium link at readme

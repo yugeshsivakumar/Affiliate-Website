@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Mail, Linkedin, Github, Globe2 } from 'lucide-react'; // Use Globe2 for Medium
+import { ShoppingBag, Mail, Linkedin, Github, Globe2 } from 'lucide-react'; 
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
           <p className="mt-2 text-sm">
-            This site contains affiliate links. We may earn a commission when you purchase through these links.
+            This site contains affiliate links. I may earn a commission when you purchase through these links.
           </p>
         </div>
       </div>

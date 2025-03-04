@@ -146,7 +146,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           rel="noopener noreferrer"
           className="glossy-button inline-block"
         >
-          View on Amazon
+          Shop Now 🛒
         </a>
       </div>
     </div>
