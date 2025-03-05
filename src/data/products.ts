@@ -128,7 +128,7 @@ export const products: Product[] = [
   {
     id: 10,
     name: "Victorinox Swiss Army Knife",
-    category: "tools",
+    category: "others",
     imageUrl: "https://images.unsplash.com/photo-1551845728-6820a30c64e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     review: "The ultimate everyday carry tool. I've used mine for everything from opening packages to emergency repairs. The build quality is exceptional—mine has lasted 5+ years of daily use without issues.",
     downloads: 42000,
@@ -141,7 +141,7 @@ export const products: Product[] = [
   {
     id: 11,
     name: "Bosch Power Drill",
-    category: "tools",
+    category: "others",
     imageUrl: "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     review: "Perfect balance of power and precision for home projects. The battery life is impressive, lasting through multiple furniture assemblies. The ergonomic grip reduces hand fatigue during extended use.",
     downloads: 38000,
@@ -154,7 +154,7 @@ export const products: Product[] = [
   {
     id: 12,
     name: "Moleskine Classic Notebook",
-    category: "tools",
+    category: "stationary",
     imageUrl: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     review: "My analog productivity tool of choice. The paper quality is exceptional—no bleeding or ghosting with fountain pens. The binding has survived years in my bag, and the pocket in the back is perfect for receipts and cards.",
     downloads: 85000,

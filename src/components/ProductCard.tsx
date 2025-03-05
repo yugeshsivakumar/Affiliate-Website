@@ -17,19 +17,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   const handleRating = (rating: number) => {
     if (userRating === rating) {
-      // Unselect if clicking the same rating
       setUserRating(null);
       setUserRatings(userRatings.slice(0, -1));
     } else {
-      // Add or update rating
       setUserRating(rating);
       if (userRating === null) {
         setUserRatings([...userRatings, rating]);
       } else {
-        // Replace the last rating (which was this user's)
         const newRatings = [...userRatings];
         newRatings[newRatings.length - 1] = rating;
         setUserRatings(newRatings);
+      }
+      
+      const subscribedEmail = localStorage.getItem('subscribedEmail');
+      if (subscribedEmail) {
+        console.log(`Sending email to ${subscribedEmail} about new rating for ${product.name}`);
       }
     }
   };
@@ -37,7 +39,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <div className="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:neon-glow transform hover:-translate-y-1">
       <a href={product.amazonLink} target="_blank" rel="noopener noreferrer" className="block relative">
-        <div className="relative h-64 overflow-hidden">
+        <div className="relative h-48 overflow-hidden">
           <img 
             src={product.imageUrl} 
             alt={product.name} 
@@ -50,19 +52,19 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
       </a>
       
-      <div className="p-6">
+      <div className="p-4">
         <a 
           href={product.amazonLink} 
           target="_blank" 
           rel="noopener noreferrer"
           className="block"
         >
-          <h3 className="text-xl font-bold mb-2 text-white hover:text-indigo-400 transition-colors">
+          <h3 className="text-lg font-bold mb-2 text-white hover:text-indigo-400 transition-colors">
             {product.name}
           </h3>
         </a>
         
-        <div className="flex items-center mb-4">
+        <div className="flex items-center mb-3">
           <div className="flex items-center text-sm text-gray-400">
             <Download size={16} className="mr-1" />
             <span>{product.downloads.toLocaleString()} downloads</span>
@@ -81,9 +83,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </div>
         </div>
         
-        <p className="text-gray-400 mb-4 line-clamp-3">{product.review}</p>
+        <p className="text-gray-400 mb-3 text-sm line-clamp-3">{product.review}</p>
         
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-2 mb-3">
           <button 
             onClick={() => setShowDetails(!showDetails)}
             className="text-sm text-indigo-400 hover:text-indigo-300 transition-colors"
@@ -118,9 +120,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           )}
         </div>
         
-        <div className="mb-4 p-3 bg-gray-800 bg-opacity-50 rounded-lg">
+        <div className="mb-3 p-3 bg-gray-800 bg-opacity-50 rounded-lg">
           <div className="flex justify-between items-center mb-2">
-            <h4 className="text-white font-medium">Your Rating</h4>
+            <h4 className="text-white font-medium text-sm">Your Rating</h4>
             <span className="text-sm text-gray-400">User avg: {averageUserRating}</span>
           </div>
           <div className="flex gap-1">
@@ -134,7 +136,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     : 'text-gray-600 hover:text-gray-400'
                 }`}
               >
-                <Star size={20} fill={userRating && userRating >= rating ? "currentColor" : "none"} />
+                <Star size={16} fill={userRating && userRating >= rating ? "currentColor" : "none"} />
               </button>
             ))}
           </div>
@@ -144,7 +146,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           href={product.amazonLink} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="glossy-button inline-block"
+          className="glossy-button inline-block text-sm"
         >
           Shop Now 🛒
         </a>
