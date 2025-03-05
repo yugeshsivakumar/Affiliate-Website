@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Mail, Globe2, Github, Linkedin, PenSquare } from 'lucide-react';
+import { ShoppingBag, Mail, Globe2, Github, Linkedin, Heart, Code, PenSquare } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 const Footer: React.FC = () => {
@@ -9,6 +9,16 @@ const Footer: React.FC = () => {
     e.preventDefault();
     if (email) {
       localStorage.setItem('subscribedEmail', email);
+      // Send email to the user
+      const emailData = {
+        to: email,
+        subject: 'Welcome to AffiliateHub Newsletter',
+        text: 'Thank you for subscribing to AffiliateHub! You will receive updates when new products are added.'
+      };
+      
+      // In a real application, you would send this to your email service
+      console.log('Sending welcome email:', emailData);
+      
       toast.success('Successfully subscribed to newsletter!');
       setEmail('');
     }
@@ -25,24 +35,35 @@ const Footer: React.FC = () => {
             </span>
           </div>
           
+          <div className="flex gap-4 mb-4">
+            <a
+              href="https://github.com/yugeshsivakumar/Affiliate-Website"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glossy-button flex items-center gap-2"
+            >
+              <Code size={20} />
+              View Code
+            </a>
+            <a
+              href="https://github.com/sponsors/yugeshsivakumar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glossy-button flex items-center gap-2"
+            >
+              <Heart size={20} />
+              Donation
+            </a>
+          </div>
+
           <a
-            href="https://medium.com/@yourname"
+            href="https://medium.com/@Yugesh_S"
             target="_blank"
             rel="noopener noreferrer"
-            className="mb-8 flex items-center gap-2 glossy-button"
+            className="mb-8 glossy-button flex items-center gap-2"
           >
             <PenSquare size={20} />
             Create Your Own Affiliate Web
-          </a>
-
-          <a
-            href="https://github.com/yugeshsivakumar/Affiliate-Website"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mb-8 flex items-center gap-2 glossy-button"
-          >
-            <PenSquare size={20} />
-            View my Code 
           </a>
           
           <div className="mb-8 max-w-md text-center">
@@ -66,13 +87,13 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="flex space-x-6 mb-8">
-            <a href="https://yuegsh.me" className="text-gray-500 hover:text-indigo-400 transition-colors">
+            <a href="https://yugesh.me" className="text-gray-500 hover:text-indigo-400 transition-colors">
               <Globe2 size={24} />
             </a>
             <a href="https://github.com/yugeshsivakumar" className="text-gray-500 hover:text-indigo-400 transition-colors">
               <Github size={24} />
             </a>
-            <a href="https://linkedin.com/in/yugeshsivakumar" className="text-gray-500 hover:text-indigo-400 transition-colors">
+            <a href="http://linkedin.com/in/yugeshsivakumar" className="text-gray-500 hover:text-indigo-400 transition-colors">
               <Linkedin size={24} />
             </a>
             <a href="mailto:imyugesh.s@gmail.com" className="text-gray-500 hover:text-indigo-400 transition-colors">

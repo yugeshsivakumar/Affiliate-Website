@@ -1,27 +1,40 @@
-import React, { useState } from 'react';
-import { BookOpen, Smartphone, MonitorSmartphone, Pencil, ExternalLink } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { BookOpen, Smartphone, MonitorSmartphone, Pencil, ExternalLink, Box } from 'lucide-react';
 import { Toaster } from 'react-hot-toast';
 import ProductCard from './components/ProductCard';
 import CategoryFilter from './components/CategoryFilter';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Preloader from './components/Preloader';
 import { products } from './data/products';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [loading, setLoading] = useState(true);
   
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const categories = [
     { id: 'all', name: 'All Products', icon: <ExternalLink size={20} /> },
     { id: 'books', name: 'Books', icon: <BookOpen size={20} /> },
     { id: 'gadgets', name: 'Gadgets', icon: <Smartphone size={20} /> },
     { id: 'software', name: 'Software', icon: <MonitorSmartphone size={20} /> },
     { id: 'stationery', name: 'Stationery', icon: <Pencil size={20} /> },
-    { id: 'others', name: 'Others', icon: <ExternalLink size={20} /> }
+    { id: 'others', name: 'Others', icon: <Box size={20} /> }
   ];
 
   const filteredProducts = selectedCategory === 'all' 
     ? products 
     : products.filter(product => product.category === selectedCategory);
+
+  if (loading) {
+    return <Preloader />;
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-950 to-gray-900">
@@ -59,4 +72,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

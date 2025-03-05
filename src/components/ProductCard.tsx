@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Download, ThumbsUp, ThumbsDown, Star } from 'lucide-react';
+import { Download, ThumbsUp, ThumbsDown, Star, Share2, ShoppingCart } from 'lucide-react';
 import { Product } from '../types';
+import toast from 'react-hot-toast';
 
 interface ProductCardProps {
   product: Product;
@@ -31,8 +32,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       
       const subscribedEmail = localStorage.getItem('subscribedEmail');
       if (subscribedEmail) {
+        // In a real application, you would send this to your email service
         console.log(`Sending email to ${subscribedEmail} about new rating for ${product.name}`);
       }
+    }
+  };
+
+  const handleShare = async () => {
+    try {
+      await navigator.clipboard.writeText(product.amazonLink);
+      toast.success('Product link copied to clipboard!');
+    } catch (err) {
+      toast.error('Failed to copy link');
     }
   };
 
@@ -142,14 +153,24 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </div>
         </div>
         
-        <a 
-          href={product.amazonLink} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="glossy-button inline-block text-sm"
-        >
-          Shop Now 🛒
-        </a>
+        <div className="flex gap-2">
+          <a 
+            href={product.amazonLink} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="glossy-button inline-flex items-center gap-2 text-sm"
+          >
+            <ShoppingCart size={16} />
+            Shop now
+          </a>
+          <button
+            onClick={handleShare}
+            className="glossy-button inline-flex items-center gap-2 text-sm"
+          >
+            <Share2 size={16} />
+            Share
+          </button>
+        </div>
       </div>
     </div>
   );

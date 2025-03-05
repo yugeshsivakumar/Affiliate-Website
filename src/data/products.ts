@@ -123,8 +123,7 @@ export const products: Product[] = [
     cons: ["Occasional connection drops", "Advanced features require technical knowledge"],
     userRatings: [4, 5, 3, 4, 4]
   },
-  
-  // Tools
+
   {
     id: 10,
     name: "Victorinox Swiss Army Knife",
@@ -154,7 +153,7 @@ export const products: Product[] = [
   {
     id: 12,
     name: "Moleskine Classic Notebook",
-    category: "stationary",
+    category: "stationery",
     imageUrl: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     review: "My analog productivity tool of choice. The paper quality is exceptional—no bleeding or ghosting with fountain pens. The binding has survived years in my bag, and the pocket in the back is perfect for receipts and cards.",
     downloads: 85000,
@@ -163,5 +162,61 @@ export const products: Product[] = [
     pros: ["Premium paper quality", "Durable binding", "Elegant design"],
     cons: ["Expensive compared to regular notebooks", "Limited paper options"],
     userRatings: [5, 4, 5, 5, 4]
+  },
+  
+  // Stationery
+  {
+    id: 13,
+    name: "LEUCHTTURM1917 Notebook",
+    category: "stationery",
+    imageUrl: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    review: "The perfect companion for bullet journaling and note-taking. The paper quality is exceptional with minimal ghosting, and the index system helps keep everything organized.",
+    downloads: 45000,
+    rating: 5,
+    amazonLink: "https://www.amazon.com/LEUCHTTURM1917-Medium-Dotted-Hardcover-Notebook/dp/B002TSIMW4",
+    pros: ["Premium paper quality", "Built-in index and numbering", "Lies flat when open"],
+    cons: ["Premium price point", "Limited color options"],
+    userRatings: [5, 5, 4, 5, 5]
+  },
+  {
+    id: 14,
+    name: "Pilot G2 Gel Pens",
+    category: "stationery",
+    imageUrl: "https://images.unsplash.com/photo-1585336261022-680e295ce3fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    review: "The smoothest writing experience I've had. These pens glide effortlessly and don't skip or blob. Perfect for long writing sessions.",
+    downloads: 78000,
+    rating: 4,
+    amazonLink: "https://www.amazon.com/Pilot-Retractable-Premium-Smooth-31277/dp/B001GAOTSW",
+    pros: ["Smooth writing", "Comfortable grip", "Long-lasting ink"],
+    cons: ["Can smudge if you're left-handed", "Clip can break easily"],
+    userRatings: [4, 5, 4, 4, 5]
+  },
+  
+  // Others
+  {
+    id: 15,
+    name: "Ember Temperature Control Smart Mug",
+    category: "others",
+    imageUrl: "https://images.unsplash.com/photo-1577937927133-66ef06acdf18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    review: "Game-changer for coffee and tea lovers. Keeps your drink at the perfect temperature for hours. The app control is intuitive and the battery life is impressive.",
+    downloads: 32000,
+    rating: 4,
+    amazonLink: "https://www.amazon.com/Ember-Temperature-Control-Smart-Mug/dp/B0773WG6NK",
+    pros: ["Maintains perfect temperature", "Long battery life", "Sleek design"],
+    cons: ["Expensive", "Hand wash only"],
+    userRatings: [4, 5, 4, 4, 3]
+  },
+  {
+    id: 16,
+    name: "Blue Light Blocking Glasses",
+    category: "others",
+    imageUrl: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    review: "Essential for long hours in front of screens. Noticeably reduced eye strain and improved sleep quality. Stylish enough to wear all day.",
+    downloads: 65000,
+    rating: 4,
+    amazonLink: "https://www.amazon.com/Blue-Light-Blocking-Glasses/dp/B08CNN9H7B",
+    pros: ["Reduces eye strain", "Stylish design", "Lightweight frame"],
+    cons: ["Slight color distortion", "May need adjustment period"],
+    userRatings: [4, 4, 5, 4, 4]
   }
 ];
