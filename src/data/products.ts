@@ -96,7 +96,7 @@ export const products: Product[] = [
     name: "Obsidian",
     category: "software",
     imageUrl:
-      "https://plus.unsplash.com/premium_photo-1721955487745-a2c3aea86d1c?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "src/images/obsidian.webp",
     review:
       "Obsidian is a powerful, markdown-based note-taking app designed for linking and organizing knowledge like a personal knowledge graph.",
     downloads: "1M+",
@@ -112,4 +112,68 @@ export const products: Product[] = [
     ],
     userRatings: [4, 5, 4, 3, 4],
   },
+    {
+      "id": 8,
+      "name": "Speechify",
+      "category": "software",
+      "imageUrl":
+        "https://play-lh.googleusercontent.com/W0GcGHbSPEA2VBf8CM-SoRG9yYS2RwxgPM9Q25MmhmU6YzJ2t8lHIAnejL0nL9LvYwMx=w480-h960-rw",
+      "review":
+        "Speechify is a text-to-speech tool that converts written text into natural-sounding audio, making reading more accessible and convenient.",
+      "downloads": "5M+",
+      "rating": 4,
+      "amazonLink": "https://www.speechify.com/download",
+      "pros": [
+        "High-quality voices",
+        "Works across devices",
+        "Helps with accessibility"
+      ],
+      "cons": [
+        "Expensive premium version"
+      ],
+      "userRatings": [4, 5, 4, 4, 3]
+    },
+  {
+    "id": 9,
+    "name": "Grammarly",
+    "category": "software",
+    "imageUrl":
+      "src/images/grammarly.png",
+    "review":
+      "Grammarly is a writing assistant that helps users improve their grammar, clarity, and style with real-time AI-powered suggestions.",
+    "downloads": "50M+",
+    "rating": 4,
+    "amazonLink": "https://app.grammarly.com/apps",
+    "pros": [
+      "Advanced grammar checking",
+      "AI-powered suggestions",
+      "Works across multiple platforms"
+    ],
+    "cons": [
+      "Premium version is expensive"
+    ],
+    "userRatings": [5, 4, 5, 5, 4]
+  },
+    {
+      "id": 10,
+      "name": "Quizlet",
+      "category": "software",
+      "imageUrl":
+        "src/images/quizlet.png",
+      "review":
+        "Quizlet is a learning tool that helps students study with flashcards, quizzes, and games, making memorization more engaging and effective.",
+      "downloads": "10M+",
+      "rating": 4,
+      "amazonLink": "https://www.quizlet.com/download",
+      "pros": [
+        "Effective for memorization",
+        "User-friendly interface",
+        "Large community content"
+      ],
+      "cons": [
+        "Some features require a subscription"
+      ],
+      "userRatings": [5, 4, 5, 4, 4]
+    },
+
 ];
