@@ -96,7 +96,7 @@ export const products: Product[] = [
     name: "Obsidian",
     category: "software",
     imageUrl:
-      "src/images/obsidian.webp",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX_tkeZh7LrdIQ_ZXxwL8USLLRqvFFck1oLT-P1MIHr9totdSGNf3zXWspouznjf44cnY&usqp=CAU",
     review:
       "Obsidian is a powerful, markdown-based note-taking app designed for linking and organizing knowledge like a personal knowledge graph.",
     downloads: "1M+",
@@ -138,7 +138,7 @@ export const products: Product[] = [
     "name": "Grammarly",
     "category": "software",
     "imageUrl":
-      "src/images/grammarly.png",
+      "https://images.ctfassets.net/1e6ajr2k4140/59BCuroQxv6HsFY1t0LYx6/964f8dd29e89eb079a2737f7e7254c11/Frame_31613445.png",
     "review":
       "Grammarly is a writing assistant that helps users improve their grammar, clarity, and style with real-time AI-powered suggestions.",
     "downloads": "50M+",
@@ -159,7 +159,7 @@ export const products: Product[] = [
       "name": "Quizlet",
       "category": "software",
       "imageUrl":
-        "src/images/quizlet.png",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaFzuzQ9EfztJgfUPTioB6oOFP4FZVH8dWA4jNeqDKwTVShz6AIvfla-7PegyrHuyYpq0&usqp=CAU",
       "review":
         "Quizlet is a learning tool that helps students study with flashcards, quizzes, and games, making memorization more engaging and effective.",
       "downloads": "10M+",
