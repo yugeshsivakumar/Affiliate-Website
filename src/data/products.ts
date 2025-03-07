@@ -1,7 +1,6 @@
 import { Product } from "../types";
 
 export const products: Product[] = [
-  // Books
   {
     id: 1,
     name: "Ikigai by Francesc Miralles and Hector Garcia",
@@ -71,7 +70,6 @@ export const products: Product[] = [
   cons: ["Basic Principles", "Limited Novelty"],
   userRatings: [5, 4, 5, 5, 4]
   },
-  // Software
   {
     id: 6,
     name: "Notion",
@@ -175,5 +173,120 @@ export const products: Product[] = [
       ],
       "userRatings": [5, 4, 5, 4, 4]
     },
-
+    {
+      "id": 11,
+      "name": "boAt Airdopes 300",
+      "category": "gadgets",
+      "imageUrl": "https://www.addmecart.com/wp-content/uploads/2024/06/123-25.png",
+      "review": "boAt Airdopes 300 are true wireless earbuds offering immersive audio experience with Bluetooth connectivity and long battery life.",
+      "downloads": "10k+",
+      "rating": 3,
+      "amazonLink": "https://amzn.in/d/a42kaNV",
+      "pros": [
+        "True wireless design",
+        "Long battery life",
+        "Affordable price"
+      ],
+      "cons": [
+        "Limited noise cancellation"
+      ],
+      "userRatings": [4, 5, 4, 3, 4]
+    },
+    {
+      "id": 12,
+      "name": "Cosmic Byte Artemis RGB Wired Mechanical Keyboard",
+      "category": "gadgets",
+      "imageUrl": "https://m.media-amazon.com/images/I/51WDeYbZ38L._SX679_.jpg",
+      "review": "The Cosmic Byte CB-GK-36 Artemis is a compact 68-key mechanical keyboard featuring per-key RGB lighting and swappable Outemu Blue switches for a customizable typing experience.",
+      "downloads": "3k+",
+      "rating": 4,
+      "amazonLink": "https://amzn.in/d/hqRE7cM",
+      "pros": [
+        "Compact design with 68 keys",
+        "Per-key RGB lighting",
+        "Swappable mechanical switches"
+      ],
+      "cons": [
+        "Fixed 3° tilt without extra lifting options"
+      ],
+      "userRatings": [5, 4, 5, 4, 4]
+    },
+    {
+      "id": 13,
+      "name": "AERYS Digital Alarm Clock Table Clock",
+      "category": "gadgets",
+      "imageUrl": "https://m.media-amazon.com/images/I/51U8fQGT2SL.jpg",
+      "review": "The AERYS Digital Alarm Clock is a sleek table clock featuring a clear LED display, multiple alarm settings, and modern design suitable for any bedroom or office.",
+      "downloads": "15k+",
+      "rating": 4.0,
+      "amazonLink": "https://amzn.in/d/82EjC1K",
+      "pros": [
+        "Clear LED display",
+        "Multiple alarm settings",
+        "Modern design"
+      ],
+      "cons": [
+        "No battery backup"
+      ],
+      "userRatings": [4, 4, 4, 3, 5]
+    },
+    {
+      "id": 14,
+      "name": "XP-PEN Deco Mini 7 Graphics Tablet",
+      "category": "gadgets",
+      "imageUrl": "https://www.pchouse.com.bd/image/cache/catalog/0%20AA/Rashed/New%20Year%202023/March/04-03-23/3-600x500h.jpg.webp",
+      "review": "The XP-PEN Deco Mini 7 is a portable graphics tablet with a 7-inch working area, battery-free stylus, and compatibility with various operating systems, ideal for digital artists and designers.",
+      "downloads": "2k+",
+      "rating": 5,
+      "amazonLink": "https://amzn.in/d/60bVF9c",
+      "pros": [
+        "Portable and compact",
+        "Battery-free stylus",
+        "Wide compatibility"
+      ],
+      "cons": [
+        "Limited active area size","Price to high"
+      ],
+      "userRatings": [5, 4, 4, 4, 4]
+    },
+    {
+      "id": 15,
+      "name": "Fastrack Analog Men's Watch",
+      "category": "others",
+      "imageUrl": "https://m.media-amazon.com/images/I/51ShDfPKAjL._SX679_.jpg",
+      "review": "The Fastrack Analog Men's Watch features a vibrant dial with a matching colored strap, offering a youthful and stylish look. Its quartz movement ensures accurate timekeeping, and the durable build makes it suitable for daily wear.",
+      "downloads": "1k+",
+      "rating": 4.2,
+      "amazonLink": "https://amzn.in/d/cmyQGct",
+      "pros": [
+        "Stylish design",
+        "Long Life",
+        "Durable build"
+      ],
+      "cons": [
+        "Silicone Strap",
+        "Strap material may wear over time"
+      ],
+      "userRatings": [4, 5, 4, 3, 5]
+    },
+    {
+      "id": 16,
+      "name": "Flash Cards with Storage Box",
+      "category": "stationery",
+      "imageUrl": "https://m.media-amazon.com/images/I/51s8R3VY+oL._AC_UF350,350_QL80_.jpg",
+      "review": "Suvigya offers unruled index flash cards measuring 2x3.5 inches, made from 200 GSM ivory cardstock. The pack includes 200 white sheets and comes with a storage box, making it ideal for note-taking, study aids, and organizing information.",
+      "downloads": "1k+",
+      "rating": 4,
+      "amazonLink": "https://amzn.in/d/6N12GF5",
+      "pros": [
+        "High-quality 200 GSM ivory cardstock",
+        "Compact size suitable for portability",
+        "Includes a storage box for organization"
+      ],
+      "cons": [
+        "Small size may not be suitable for extensive notes",
+        "Unruled format may not suit everyone's preferences"
+      ],
+      "userRatings": [5, 4, 4, 4, 4]
+    },
 ];
