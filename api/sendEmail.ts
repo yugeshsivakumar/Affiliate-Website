@@ -42,7 +42,7 @@ export default async function handler(req: any, res: any) {
 
     // Send email from Products@yugesh.me
     await resend.emails.send({
-      from: "Products@yugesh.me", // Use your verified business email
+      from: "contact@yugesh.me", // Use your verified business email
       to: emails,
       subject: "🚀 New Product Alert!",
       html: `
