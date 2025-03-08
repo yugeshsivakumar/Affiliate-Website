@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { ShoppingBag, Mail, Globe2, Github, Linkedin, Heart, Code, PenSquare } from 'lucide-react';
-import toast from 'react-hot-toast';
+import React, { useState } from "react";
+import { ShoppingBag, Mail, Globe2, Github, Linkedin, Heart, Code, PenSquare, CheckCircle } from "lucide-react";
+import toast from "react-hot-toast";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
-// 🔐 Firebase Configuration (Fixed `storageBucket`)
-
+// 🔐 Firebase Configuration
 const firebaseConfig = {  
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,  
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,  
@@ -21,9 +20,9 @@ const db = getFirestore(app);
 
 export { app, db };
 
-
 const Footer: React.FC = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false); // ✅ Controls green tick visibility
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,19 +33,28 @@ const Footer: React.FC = () => {
       return;
     }
 
+    // ✅ Show green tick immediately when button is clicked
+    setSubscribed(true);
+
+    // ✅ Remove green tick after 10 seconds
+    setTimeout(() => {
+      setSubscribed(false);
+    }, 5000);
+    
     try {
       console.log("Trying to add email to Firestore:", email);
+      await addDoc(collection(db, "subscribers"), { email, subscribedAt: new Date() });
 
-      await addDoc(collection(db, "subscribers"), { 
-        email, 
-        subscribedAt: new Date() 
-      });
-
+      // ✅ Firebase success → Show toast
       toast.success("Successfully subscribed!");
-      setEmail("");
+      setEmail(""); // Clear input field after success
+
     } catch (error) {
       console.error("Error adding email:", error);
       toast.error("Subscription failed, check console.");
+
+      // ❌ Firebase failed → Remove green tick
+      setSubscribed(false);
     }
   };
 
@@ -60,7 +68,6 @@ const Footer: React.FC = () => {
               AffiliateHub
             </span>
           </div>
-
           <div className="flex gap-4 mb-4">
             <a href="https://github.com/yugeshsivakumar/Affiliate-Website" 
                target="_blank" rel="noopener noreferrer" 
@@ -86,7 +93,9 @@ const Footer: React.FC = () => {
           <div className="mb-8 max-w-md text-center">
             <h3 className="font-bold text-lg mb-4 text-white">Newsletter</h3>
             <p className="text-gray-400 mb-4">Subscribe to get updates on new product recommendations.</p>
-            <form onSubmit={handleSubscribe} className="flex">
+
+            {/* 📨 Email Subscription Form */}
+            <form onSubmit={handleSubscribe} className="flex items-center relative">
               <input 
                 type="email" 
                 placeholder="Your email" 
@@ -94,36 +103,23 @@ const Footer: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="px-4 py-2 rounded-l-lg w-full focus:outline-none bg-gray-800 border border-gray-700 text-gray-200"
               />
-              <button 
-                type="submit" 
-                className="glossy-button rounded-l-none"
-              >
+              <button type="submit" className="glossy-button rounded-l-none">
                 Subscribe
               </button>
+
+              {/* ✅ Green tick appears instantly when button is clicked */}
+              {subscribed && (
+                <CheckCircle size={24} className="text-green-400 absolute right-[-35px] transition-opacity duration-300" />
+              )}
             </form>
           </div>
 
-          <div className="flex space-x-6 mb-8">
-            <a href="https://yugesh.me" className="text-gray-500 hover:text-indigo-400 transition-colors">
-              <Globe2 size={24} />
-            </a>
-            <a href="https://github.com/yugeshsivakumar" className="text-gray-500 hover:text-indigo-400 transition-colors">
-              <Github size={24} />
-            </a>
-            <a href="http://linkedin.com/in/yugeshsivakumar" className="text-gray-500 hover:text-indigo-400 transition-colors">
-              <Linkedin size={24} />
-            </a>
-            <a href="mailto:imyugesh.s@gmail.com" className="text-gray-500 hover:text-indigo-400 transition-colors">
-              <Mail size={24} />
-            </a>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+            <p>© {new Date().getFullYear()} AffiliateHub. All rights reserved.</p>
+            <p className="mt-2 text-sm">
+              This site contains affiliate links. I may earn a commission when you purchase through these links.
+            </p>
           </div>
-        </div>
-
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
-          <p>© {new Date().getFullYear()} AffiliateHub. All rights reserved.</p>
-          <p className="mt-2 text-sm">
-            This site contains affiliate links. I may earn a commission when you purchase through these links.
-          </p>
         </div>
       </div>
     </footer>
