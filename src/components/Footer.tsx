@@ -1,26 +1,52 @@
 import React, { useState } from 'react';
 import { ShoppingBag, Mail, Globe2, Github, Linkedin, Heart, Code, PenSquare } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+
+// 🔐 Firebase Configuration (Fixed `storageBucket`)
+
+const firebaseConfig = {  
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,  
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,  
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,  
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,  
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,  
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+export { app, db };
+
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      localStorage.setItem('subscribedEmail', email);
-      // Send email to the user
-      const emailData = {
-        to: email,
-        subject: 'Welcome to AffiliateHub Newsletter',
-        text: 'Thank you for subscribing to AffiliateHub! You will receive updates when new products are added.'
-      };
-      
-      // In a real application, you would send this to your email service
-      console.log('Sending welcome email:', emailData);
-      
-      toast.success('Successfully subscribed to newsletter!');
-      setEmail('');
+    console.log("Subscribe button clicked!");
+
+    if (!email.trim()) {
+      toast.error("Email is required");
+      return;
+    }
+
+    try {
+      console.log("Trying to add email to Firestore:", email);
+
+      await addDoc(collection(db, "subscribers"), { 
+        email, 
+        subscribedAt: new Date() 
+      });
+
+      toast.success("Successfully subscribed!");
+      setEmail("");
+    } catch (error) {
+      console.error("Error adding email:", error);
+      toast.error("Subscription failed, check console.");
     }
   };
 
@@ -34,38 +60,29 @@ const Footer: React.FC = () => {
               AffiliateHub
             </span>
           </div>
-          
+
           <div className="flex gap-4 mb-4">
-            <a
-              href="https://github.com/yugeshsivakumar/Affiliate-Website"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glossy-button flex items-center gap-2"
-            >
+            <a href="https://github.com/yugeshsivakumar/Affiliate-Website" 
+               target="_blank" rel="noopener noreferrer" 
+               className="glossy-button flex items-center gap-2">
               <Code size={20} />
               View Code
             </a>
-            <a
-              href="https://github.com/sponsors/yugeshsivakumar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glossy-button flex items-center gap-2"
-            >
+            <a href="https://github.com/sponsors/yugeshsivakumar" 
+               target="_blank" rel="noopener noreferrer" 
+               className="glossy-button flex items-center gap-2">
               <Heart size={20} />
               Donation
             </a>
           </div>
 
-          <a
-            href="https://medium.com/@Yugesh_S"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mb-8 glossy-button flex items-center gap-2"
-          >
+          <a href="https://medium.com/@Yugesh_S" 
+             target="_blank" rel="noopener noreferrer" 
+             className="mb-8 glossy-button flex items-center gap-2">
             <PenSquare size={20} />
             Create Your Own Affiliate Web
           </a>
-          
+
           <div className="mb-8 max-w-md text-center">
             <h3 className="font-bold text-lg mb-4 text-white">Newsletter</h3>
             <p className="text-gray-400 mb-4">Subscribe to get updates on new product recommendations.</p>
@@ -85,7 +102,7 @@ const Footer: React.FC = () => {
               </button>
             </form>
           </div>
-          
+
           <div className="flex space-x-6 mb-8">
             <a href="https://yugesh.me" className="text-gray-500 hover:text-indigo-400 transition-colors">
               <Globe2 size={24} />
@@ -101,7 +118,7 @@ const Footer: React.FC = () => {
             </a>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
           <p>© {new Date().getFullYear()} AffiliateHub. All rights reserved.</p>
           <p className="mt-2 text-sm">
