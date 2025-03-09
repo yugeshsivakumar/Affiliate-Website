@@ -3,58 +3,110 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { Resend } from "resend";
 
-// Firebase Configuration (using process.env for security)
-const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.FIREBASE_APP_ID,
+// Add detailed logging for debugging
+console.log("API handler initializing...");
+
+// 🔐 Firebase Configuration
+const firebaseConfig = {  
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,  
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,  
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,  
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,  
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,  
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-// Initialize Firebase & Firestore
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+// Log configuration (without sensitive values)
+console.log("Firebase config keys present:", Object.keys(firebaseConfig).filter(key => firebaseConfig[key] !== undefined));
 
-// Initialize Resend API
-const resend = new Resend(process.env.RESEND_API_KEY);
+let app;
+let db;
+let resend;
+
+try {
+  // Initialize Firebase
+  console.log("Initializing Firebase...");
+  app = initializeApp(firebaseConfig);
+  db = getFirestore(app);
+  console.log("Firebase initialized successfully");
+  
+  // Initialize Resend API
+  console.log("Initializing Resend...");
+  resend = new Resend(import.meta.env.VITE_RESEND_API_KEY);
+  console.log("Resend initialized successfully");
+} catch (initError) {
+  console.error("Initialization error:", initError);
+}
+
+export { app, db };
 
 export default async function handler(req: any, res: any) {
+  console.log("Request received:", req.method);
+  
+  // Handle preflight requests
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+  
   if (req.method !== "POST") {
+    console.log("Method not allowed:", req.method);
     return res.status(405).json({ message: "Method Not Allowed" });
   }
 
-  // Secure API with Secret Key
+  // Log authorization header (without revealing the full token)
   const providedKey = req.headers.authorization;
-  if (providedKey !== `Bearer ${process.env.ADMIN_SECRET_KEY}`) {
+  console.log("Authorization header present:", !!providedKey);
+  
+  // Secure API with Secret Key
+  const expectedKey = `Bearer ${import.meta.env.VITE_ADMIN_SECRET_KEY}`;
+  console.log("Admin key configured:", !!import.meta.env.VITE_ADMIN_SECRET_KEY);
+  
+  if (providedKey !== expectedKey) {
+    console.log("Authorization failed");
     return res.status(403).json({ message: "Unauthorized Access" });
   }
+  
+  console.log("Authorization successful");
 
   try {
     // Fetch all subscriber emails from Firestore
+    console.log("Fetching subscribers from Firestore...");
     const querySnapshot = await getDocs(collection(db, "subscribers"));
     const emails = querySnapshot.docs.map((doc) => doc.data().email);
+    console.log(`Found ${emails.length} subscribers`);
 
     if (emails.length === 0) {
+      console.log("No subscribers found");
       return res.status(400).json({ message: "No subscribers found" });
     }
 
-    // Send email from Products@yugesh.me
-    await resend.emails.send({
+    // Send email from contact@yugesh.me
+    console.log("Sending emails via Resend...");
+    const sendResult = await resend.emails.send({
       from: "contact@yugesh.me", // Use your verified business email
       to: emails,
       subject: "🚀 New Product Alert!",
       html: `
         <h2>🔥 A New Product Has Been Added!</h2>
         <p>Check out our latest addition and grab it now!</p>
-        <a href="https://yourwebsite.com">View Product</a>
+        <a href="https://yugesh.me/shop">View Product</a>
       `,
     });
+    console.log("Email send result:", sendResult);
 
+    console.log("Emails sent successfully");
     res.status(200).json({ message: "Emails sent successfully!" });
   } catch (error) {
-    console.error("Error sending emails:", error);
-    res.status(500).json({ message: "Failed to send emails" });
+    console.error("Error details:", error);
+    
+    // Return more detailed error information
+    res.status(500).json({ 
+      message: "Failed to send emails", 
+      error: typeof error === 'object' ? {
+        name: error.name,
+        message: error.message,
+        stack: error.stack
+      } : String(error)
+    });
   }
 }

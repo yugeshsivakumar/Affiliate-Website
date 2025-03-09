@@ -35,7 +35,7 @@ This affiliate marketing website is designed to promote and recommend products f
 Here is the folder structure of this app.
 
 ```bash
-3d-portfolio/
+Affiliate-Website/
   |- src/
     |-- Components/
         |--- CategoryFilter.tsx

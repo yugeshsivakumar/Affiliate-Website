@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
             </a>
           </div>
 
-          <a href="https://medium.com/@Yugesh_S" 
+          <a href="https://medium.com/@Yugesh_S/how-to-create-your-affiliate-website-beginner-friendly-guide-8bb4e9758b2e" 
              target="_blank" rel="noopener noreferrer" 
              className="mb-8 glossy-button flex items-center gap-2">
             <PenSquare size={20} />
