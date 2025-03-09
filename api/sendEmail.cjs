@@ -1,4 +1,4 @@
-// api/sendEmail.ts
+// api/sendEmail.js
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { Resend } from "resend";
@@ -38,9 +38,11 @@ try {
   console.error("Initialization error:", initError);
 }
 
+// Use named exports instead of CommonJS exports
 export { app, db };
 
-export default async function handler(req: any, res: any) {
+// Use default export for the handler
+export default async function handler(req, res) {
   console.log("Request received:", req.method);
   
   // Handle preflight requests
