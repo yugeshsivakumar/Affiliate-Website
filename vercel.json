@@ -4,7 +4,7 @@
   ],
   "functions": {
     "api/**/*": {
-      "runtime": "nodejs18.x"
+      "runtime": "nodejs18"
     }
   },
   "buildCommand": "npm run build",
