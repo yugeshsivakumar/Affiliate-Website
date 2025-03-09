@@ -3,8 +3,10 @@
     { "source": "/api/sendEmail", "destination": "/api/sendEmail.cjs" }
   ],
   "functions": {
-    "api/**/*.cjs": {
+    "api/**/*": {
       "runtime": "nodejs18.x"
     }
-  }
+  },
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 }
