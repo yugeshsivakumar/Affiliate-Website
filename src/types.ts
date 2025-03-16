@@ -10,4 +10,9 @@ export interface Product {
   pros: string[];
   cons: string[];
   userRatings?: number[];
+  platformLinks?: {
+    windows?: string;
+    android?: string;
+    ios?: string;
+  };
 }

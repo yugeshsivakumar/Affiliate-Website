@@ -70,6 +70,9 @@ export const products: Product[] = [
   cons: ["Basic Principles", "Limited Novelty"],
   userRatings: [5, 4, 5, 5, 4]
   },
+
+// Software
+
   {
     id: 6,
     name: "Notion",
@@ -88,6 +91,11 @@ export const products: Product[] = [
     ],
     cons: ["Internet Compulsory", "Slow with large databases"],
     userRatings: [5, 4, 5, 5, 5],
+    platformLinks: {
+      windows: "https://www.notion.so/desktop/windows",
+      android: "https://play.google.com/store/apps/details?id=notion.id",
+      ios: "https://apps.apple.com/app/notion-notes-docs-tasks/id1232780281"
+    }
   },
   {
     id: 7,
@@ -109,6 +117,11 @@ export const products: Product[] = [
       "Hard to use for beginners"
     ],
     userRatings: [4, 5, 4, 3, 4],
+    platformLinks: {
+      windows: "https://www.notion.so/desktop/windows",
+      android: "https://play.google.com/store/apps/details?id=notion.id",
+      ios: "https://apps.apple.com/app/notion-notes-docs-tasks/id1232780281"
+    }
   },
     {
       "id": 8,
@@ -129,7 +142,12 @@ export const products: Product[] = [
       "cons": [
         "Expensive premium version"
       ],
-      "userRatings": [4, 5, 4, 4, 3]
+      "userRatings": [4, 5, 4, 4, 3],
+      platformLinks: {
+        windows: "https://www.notion.so/desktop/windows",
+        android: "https://play.google.com/store/apps/details?id=notion.id",
+        ios: "https://apps.apple.com/app/notion-notes-docs-tasks/id1232780281"
+      }
     },
   {
     "id": 9,
@@ -150,7 +168,12 @@ export const products: Product[] = [
     "cons": [
       "Premium version is expensive"
     ],
-    "userRatings": [5, 4, 5, 5, 4]
+    "userRatings": [5, 4, 5, 5, 4],
+    platformLinks: {
+      windows: "https://www.notion.so/desktop/windows",
+      android: "https://play.google.com/store/apps/details?id=notion.id",
+      ios: "https://apps.apple.com/app/notion-notes-docs-tasks/id1232780281"
+    }
   },
     {
       "id": 10,
@@ -171,7 +194,12 @@ export const products: Product[] = [
       "cons": [
         "Some features require a subscription"
       ],
-      "userRatings": [5, 4, 5, 4, 4]
+      "userRatings": [5, 4, 5, 4, 4],
+      platformLinks: {
+        windows: "https://www.notion.so/desktop/windows",
+        android: "https://play.google.com/store/apps/details?id=notion.id",
+        ios: "https://apps.apple.com/app/notion-notes-docs-tasks/id1232780281"
+      }
     },
     {
       "id": 11,
