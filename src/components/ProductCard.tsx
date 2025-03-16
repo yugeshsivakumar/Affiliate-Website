@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Download, ThumbsUp, ThumbsDown, Star, Share2, ShoppingCart, Users, BookCopy, ArrowDownToLine } from 'lucide-react';
 import { Product } from '../types';
 import toast from 'react-hot-toast';
+import DownloadModal from './DownloadModal';
 
 interface ProductCardProps {
   product: Product;
