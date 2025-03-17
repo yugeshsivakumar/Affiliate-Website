@@ -12,6 +12,8 @@ export interface Product {
   userRatings?: number[];
   platformLinks?: {
     windows?: string;
+    mac?: string;
+    linux?: string;
     android?: string;
     ios?: string;
   };

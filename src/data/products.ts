@@ -203,7 +203,7 @@ export const products: Product[] = [
     },
     {
       "id": 11,
-      "name": "boAt Airdopes 300",
+      "name": "boAt Airdopes 300",  
       "category": "gadgets",
       "imageUrl": "https://www.addmecart.com/wp-content/uploads/2024/06/123-25.png",
       "review": "boAt Airdopes 300 are true wireless earbuds offering immersive audio experience with Bluetooth connectivity and long battery life.",

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, ThumbsUp, ThumbsDown, Star, Share2, ShoppingCart, Users, BookCopy, ArrowDownToLine, AppWindow as Windows, Smartphone } from 'lucide-react';
+import { Download, ThumbsUp, ThumbsDown, Star, Share2, ShoppingCart, Users, BookCopy, ArrowDownToLine } from 'lucide-react';
 import { Product } from '../types';
 import toast from 'react-hot-toast';
 import DownloadModal from './DownloadModal';
@@ -54,7 +54,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     } else if (num >= 1000) {
       return `${(num / 1000).toFixed(1)}K+`;
     }
-    return `${num}+`;
+    return `${num}`;
   };
 
   const getMetricsDisplay = () => {
@@ -85,7 +85,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           className="glossy-button inline-flex items-center gap-2 text-sm"
         >
           <ArrowDownToLine size={16} />
-          Download now
+          Download
         </button>
       );
     }
@@ -136,7 +136,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <div className="flex items-center mb-3">
             <div className="flex items-center text-sm text-gray-400">
               {metrics.icon}
-              <span>{formatNumber(product.downloads)} {metrics.label}</span>
+              <span>{product.downloads} {metrics.label}</span>
             </div>
             <div className="ml-auto flex">
               {[...Array(5)].map((_, i) => (
@@ -229,7 +229,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           isOpen={showDownloadModal} 
           onClose={() => setShowDownloadModal(false)} 
           productName={product.name}
-          amazonLink={product.amazonLink}
+          platformLinks={product.platformLinks}
         />
       )}
     </>
