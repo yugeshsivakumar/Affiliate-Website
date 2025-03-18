@@ -13,6 +13,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const [userRating, setUserRating] = useState<number | null>(null);
   const [userRatings, setUserRatings] = useState<number[]>(product.userRatings || []);
   const [showDownloadModal, setShowDownloadModal] = useState(false);
+  const [showFullReview, setShowFullReview] = useState(false);
   
   const averageUserRating = userRatings.length > 0 
     ? (userRatings.reduce((sum, rating) => sum + rating, 0) / userRatings.length).toFixed(1) 
@@ -152,7 +153,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </div>
           </div>
           
-          <p className="text-gray-400 mb-3 text-sm line-clamp-3">{product.review}</p>
+          <div className="mb-3">
+            <p className={`text-gray-400 text-sm ${!showFullReview && "line-clamp-2"}`}>
+              {product.review}
+            </p>
+            <button 
+              onClick={() => setShowFullReview(!showFullReview)}
+              className="text-xs text-indigo-400 hover:text-indigo-300 transition-colors mt-1"
+            >
+              {showFullReview ? 'Read less' : 'Read more'}
+            </button>
+          </div>
           
           <div className="flex flex-wrap gap-2 mb-3">
             <button 
