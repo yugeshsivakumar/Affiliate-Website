@@ -287,6 +287,33 @@ export const products: Product[] = [
         'https://play.google.com/store/apps/details?id=org.isoron.uhabits',
     },
   },
+  {
+  "id": 13,
+  "name": "Buyhatke",
+  "category": "software",
+  "imageUrl": "https://miro.medium.com/v2/resize:fit:600/format:webp/0*zI8bj-moBHpksc5G.jpg", 
+  "review": "Buyhatke is a price comparison and coupon aggregator tool that helps users find the best prices, offers, and deals across major e-commerce sites. It also provides alerts on price drops and cashback opportunities.",
+  "downloads": "10M+",
+  "rating": 4,
+  "amazonLink": "https://www.buyhatke.com/",
+  "pros": [
+    "Tracks price history and alerts for price drops",
+    "Aggregates best coupons and deals",
+    "Browser extension support for automatic coupon application"
+  ],
+  "cons": [
+    "Interface can feel cluttered at times",
+    "Occasional outdated offers"
+  ],
+  "userRatings": [4, 5, 4, 3, 5],
+  "platformLinks": {
+    "android": "https://play.google.com/store/apps/details?id=com.buyhatke.assistant&pcampaignid=web_share",
+    "ios" : "https://apps.apple.com/us/app/buyhatke-best-price-shopping/id895452619",
+    "mac": "https://compare.buyhatke.com/extension_referral/redirect?refID=yug5703007",
+    "linux": "https://compare.buyhatke.com/extension_referral/redirect?refID=yug5703007",
+    "windows": "https://compare.buyhatke.com/extension_referral/redirect?refID=yug5703007"
+  }
+}, 
   //gadgets
   {
     id: 14,
